@@ -24,12 +24,12 @@ import java.util.*
 
 @Composable
 fun HomePage(
-    onAddWorkoutClick: () -> Unit = {},
+    onWorkoutPanelButtonClick: () -> Unit = {},
     onDateClick: (LocalDate) -> Unit = {}
 ) {
     Column(modifier = Modifier.fillMaxSize()) {
 
-        Header(onAddClick = onAddWorkoutClick)
+        Header(onAddClick = onWorkoutPanelButtonClick)
         FitNotesStyleCalendar(onDateClick = onDateClick)
     }
 }
@@ -152,7 +152,7 @@ fun Header(
         ) {
             Icon(
                 imageVector = Icons.Default.Add,
-                contentDescription = "Dodaj trening",
+                contentDescription = "Przejdz do zakladni Workout Panel",
                 tint = Color.LightGray,
                 modifier = Modifier
                     .size(34.dp)
