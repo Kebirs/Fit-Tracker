@@ -17,6 +17,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.*
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.fittracker.ui.components.Header
 import java.time.*
 import java.time.format.TextStyle
 import java.util.*
@@ -25,12 +27,22 @@ import java.util.*
 @Composable
 fun HomePage(
     onWorkoutPanelButtonClick: () -> Unit = {},
-    onDateClick: (LocalDate) -> Unit = {}
+    viewModel: HomeViewModel = viewModel()
 ) {
-    Column(modifier = Modifier.fillMaxSize()) {
+    val selectedDate by viewModel.selectedDate.collectAsState()
+    val workouts by viewModel.workouts.collectAsState()
 
-        Header(onAddClick = onWorkoutPanelButtonClick)
-        FitNotesStyleCalendar(onDateClick = onDateClick)
+    Column(modifier = Modifier.fillMaxSize()) {
+        Header(showAddButton = true, onAddClick = onWorkoutPanelButtonClick)
+
+        FitNotesStyleCalendar(
+            onDateClick = viewModel::onDateClicked
+        )
+
+        Text("Wybrana data: $selectedDate", modifier = Modifier.padding(8.dp))
+        workouts.forEach {
+            Text("• $it", modifier = Modifier.padding(start = 16.dp, top = 4.dp))
+        }
     }
 }
 
