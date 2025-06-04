@@ -18,6 +18,7 @@ fun AppNavigation(navController: NavHostController) {
     NavHost(navController = navController, startDestination = Routes.Home.route) {
         composable(Routes.Home.route) {
             HomePage(onWorkoutPanelButtonClick = {
+                // after clicking button in header "+", open Workout Panel
                 navController.navigate(Routes.Workout.route)
             })
         }

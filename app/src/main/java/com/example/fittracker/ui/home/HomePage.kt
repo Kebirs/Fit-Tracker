@@ -131,49 +131,5 @@ fun DaysOfWeekHeader() {
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-fun Header(
-    onAddClick: () -> Unit = {}
-)
-// custom header with Title and Button that
-// open WorkoutPanel
-{
-    Box(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(75.dp)
-            .background(Color(0xFF2C2C2C))
-            .padding(top = 16.dp)
-            .padding(horizontal = 16.dp)
-
-    ) {
-        Text(
-            text = "Fit Tracker",
-            color = Color.White,
-            fontSize = 24.sp,
-            fontWeight = FontWeight.Bold,
-            modifier = Modifier.align(Alignment.CenterStart)
-        )
-
-        IconButton(
-            onClick = onAddClick,
-            modifier = Modifier
-                .align(Alignment.CenterEnd)
-                .size(48.dp)
-        ) {
-            Icon(
-                imageVector = Icons.Default.Add,
-                contentDescription = "Przejdz do zakladni Workout Panel",
-                tint = Color.LightGray,
-                modifier = Modifier
-                    .size(34.dp)
-
-            )
-        }
-    }
-}
-
-
 
 

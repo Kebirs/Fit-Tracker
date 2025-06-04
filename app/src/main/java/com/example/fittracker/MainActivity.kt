@@ -25,23 +25,3 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-
-//@Composable
-//fun AppNavigation(navController: NavHostController) {
-//    NavHost(navController = navController, startDestination = "home") {
-//        composable("home") {
-//            HomePage(
-//                onWorkoutPanelButtonClick = {
-//                    navController.navigate("workouts")
-//                },
-//                onDateClick = { selectedDate ->
-//                    println("Kliknięto: $selectedDate")
-//                }
-//            )
-//        }
-//        composable("workouts") {
-//            WorkoutPanel()
-//        }
-//    }
-//}
-
